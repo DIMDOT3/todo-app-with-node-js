@@ -1,0 +1,19 @@
+
+<---- Fetch the MongoDb code ---->
+sudo apt-get install -y mongodb-org
+
+<---- Create a directory to store Mongo files---->
+mkdir data
+
+<---- Install Mongoose ---->
+npm install mongoose --save
+
+<---- Create path for MongoDb files ---->
+****** "dbpath" below must match the directory created in line 2 ****
+echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+
+<---- Run this Command ---->
+chmod a+x mongod
+
+<---- Execute mongo demon background process handling of connecting to mongo server ---->
+./mongod
